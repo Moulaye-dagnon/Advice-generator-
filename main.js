@@ -4,15 +4,19 @@ const content = document.querySelector('.container')
 const elementId  =  document.querySelector('.id')
 const elementadvice  =  document.querySelector('.advice')
 
-async function a(){
+//function to fill  the container
+AdviceCreate()
+
+
+async function AdviceCreate(){
     const link = await fetchUsers( "https://api.adviceslip.com/advice")
     elementId.innerHTML = `ADVICE # ${link.slip.id}`
     elementadvice.innerHTML = `" ${link.slip.advice} "`
 
 }
-a()
+//add a Event about the button for change the advice
 document.querySelector('button').addEventListener('click',()=>{
-    a()
+    AdviceCreate()
 })
 
 
